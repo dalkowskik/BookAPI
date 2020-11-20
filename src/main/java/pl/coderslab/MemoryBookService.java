@@ -13,7 +13,6 @@ public class MemoryBookService implements BookService {
     private static Long nextId = 4L;
 
 
-
     public MemoryBookService() {
         books = new ArrayList<>();
         books.add(new Book(1L, "9788324631766", "Thiniking	in	Java", "Bruce	Eckel", "Helion", "programming"));
@@ -36,7 +35,7 @@ public class MemoryBookService implements BookService {
 
     @Override
     public void delete(Long id) {
-        if(get(id).isPresent()){
+        if (get(id).isPresent()) {
             books.remove(this.get(id).get());
         }
     }
@@ -46,7 +45,7 @@ public class MemoryBookService implements BookService {
 
         if (this.get(book.getId()).isPresent()) {
             int indexOf = books.indexOf(this.get(book.getId()).get());
-            books.set(indexOf,book);
+            books.set(indexOf, book);
         }
     }
 
@@ -54,7 +53,6 @@ public class MemoryBookService implements BookService {
     public List<Book> getBooks() {
         return books;
     }
-
 
 
     public void setBooks(List<Book> books) {

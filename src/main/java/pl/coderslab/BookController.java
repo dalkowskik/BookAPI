@@ -38,14 +38,14 @@ public class BookController {
 
 
     @GetMapping("/{id}")
-    public Book getBook(@PathVariable Long id){
-        return  this.memoryBookService.get(id).orElseThrow(() -> {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"entity not faund");
+    public Book getBook(@PathVariable Long id) {
+        return this.memoryBookService.get(id).orElseThrow(() -> {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "entity not faund");
         });
     }
 
     @DeleteMapping("/{id}")
-    public void removeBook(@PathVariable Long id){
+    public void removeBook(@PathVariable Long id) {
         memoryBookService.delete(id);
     }
 
@@ -55,13 +55,6 @@ public class BookController {
     public void updateBook(@RequestBody Book book) {
         memoryBookService.update(book);
     }
-
-
-
-
-
-
-
 
 
 }
